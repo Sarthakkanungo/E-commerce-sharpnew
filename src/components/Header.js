@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 
-function Header() {
+function Header(props) {
+  
+  
+
   return (
     <Navbar bg="dark" data-bs-theme="dark" className= "fixed-top" style={{height: "35px"}}>
       <Col className="col-1 "></Col>
@@ -23,7 +26,7 @@ function Header() {
       </Col>
 
       <Col className="col-1 d-flex justify-content-center ">
-        <Button variant="dark" className="fs-6 border border-info">Cart</Button>
+        <Button variant="dark" className="fs-6 border border-info" onClick={props.onShowCart}>Cart</Button>
         <span className="badge text-info">0</span>
       </Col>
     </Navbar>

@@ -44,7 +44,7 @@ const ProductList = () => {
         <h2 style={{textAlign:"center" , marginTop:"60px", fontFamily:"cursive"}}> Music </h2>
         <Row>
           {productsArr.map((item) => (
-            <Col className="col-6 ">
+            <Col key={item.title} className="col-6 ">
               <div className=" mt-4 d-flex flex-column align-items-center  ">
                 <h3>{item.title}</h3>
                 <img src={item.imageUrl} alt={item.title} width="250px" />

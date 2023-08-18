@@ -40,7 +40,7 @@ const Category = () => {
               </div>
               <div className="d-flex justify-content-between" style={{ width: "300px" }}>
                 <h6 className="mt-3"> {`\u20B9`}6.99</h6>
-                <Button variant="success">Add to Cart</Button>
+                <Button variant="info">Add to Cart</Button>
               </div>
             </div>
           </Col>
