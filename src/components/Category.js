@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import CartContext from "./store/cartContext";
 
 const Category = () => {
+  const cartCtx = useContext(CartContext);
+
+
   return (
     <Container style={{ width: "1000px", marginTop: "100px" }}>
       <div className="font-cursive text-center fs-2 fw-bold">
@@ -21,7 +25,7 @@ const Category = () => {
               </div>
               <div className="d-flex justify-content-between" style={{ width: "300px" }}>
                 <h6 className="mt-3"> {`\u20B9`}19.99</h6>
-                <Button variant="info">Add to Cart</Button>
+                <Button variant="info" onClick={cartCtx.addtoCart.bind(null)}>Add to Cart</Button>
               </div>
             </div>
           </Col>

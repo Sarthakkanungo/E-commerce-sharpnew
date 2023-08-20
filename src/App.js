@@ -23,8 +23,7 @@ function App() {
     <div>
       <Header onShowCart={showCartHandler} />
       {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <ProductList />
-      <Category />
+      <ProductList  onShowCart={showCartHandler} />     
       <Footer />
     </div>
   );
