@@ -1,42 +1,44 @@
-import React, { useState, useContext } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import CartContext from "./store/cartContext";
+import { NavLink } from "react-router-dom"; 
 
 function Header(props) {
-  const cartCtx = useContext(CartContext); 
-  const totalQantity = cartCtx.cart.reduce(( sum , curr)=> sum+curr.quantity, 0);
-  console.log(totalQantity , " Header total");
- 
-
- 
-
-
+  const cartCtx = useContext(CartContext);
+  const totalQuantity = cartCtx.cart.reduce((sum, curr) => sum + curr.quantity, 0);
 
   return (
-    <Navbar bg="dark" data-bs-theme="dark" className= "fixed-top" style={{height: "35px"}}>
-      <Col className="col-1 "></Col>
-      <Col className="col-10 ">
-        <Nav className="me-auto d-flex justify-content-center">
-          <Nav.Link href="#home" className="fw-bold">
+    <>
+      <Navbar
+        bg="dark"
+        data-bs-theme="dark"
+        className="fixed-top d-flex justify-content-between border-bottom border-light border-2"
+        style={{ height: "45px" }}
+      >
+        <div className="mx-auto w-25 text-center d-flex justify-content-evenly">
+          <NavLink to={"/"} className="fw-bold w-25 text-decoration-none text-white" activeClassName="active">
             Home
-          </Nav.Link>
-          <Nav.Link href="#features" className="fw-bold">
+          </NavLink>
+          <NavLink to={"/Store"} className="fw-bold w-25 text-decoration-none text-white" activeClassName="active">
             Store
-          </Nav.Link>
-          <Nav.Link href="#pricing" className="fw-bold">
+          </NavLink>
+          <NavLink to={"/About"} className="fw-bold w-25 text-decoration-none text-white" activeClassName="active">
             About
-          </Nav.Link>
-        </Nav>
-      </Col>
-
-      <Col className="col-1 d-flex justify-content-center ">
-        <Button variant="dark" className="fs-6 border border-info" onClick={props.onShowCart}>Cart</Button>
-        <span className="badge text-info" >{totalQantity}</span>
-      </Col>
-    </Navbar>
+          </NavLink>
+        </div>
+        <div className="d-flex justify-content-end" style={{ width: "5%" }}>
+          <Button
+            variant="dark"
+            className="fs-6 border border-info"
+            onClick={props.onShowCart}
+          >
+            Cart
+          </Button>
+          <span className="badge text-info">{totalQuantity}</span>
+        </div>
+      </Navbar>
+    </>
   );
 }
 

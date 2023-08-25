@@ -1,29 +1,22 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Category from './components/Category';
-import Header from './components/Header';
-import ProductList from './ProductList';
 import Footer from './components/Footer';
-
-import Cart from './components/Cart';
+import { Routes, Route } from "react-router-dom";
+import About from './components/About';
+import Home from './Home';
+import Store from './components/Store';
 
 
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+ 
   return (
     <div>
-      <Header onShowCart={showCartHandler} />
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <ProductList  onShowCart={showCartHandler} />     
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Store" element={<Store />} />
+      </Routes>   
       <Footer />
     </div>
   );

@@ -58,19 +58,6 @@ const ProductList = (props) => {
 
   return (
     <div>
-      <div
-        style={{
-          background: "grey",
-          height: "190px",
-          textAlign: "center",
-          fontSize: "200px",
-          color: "white",
-          fontFamily: "cursive",
-          marginTop: "35px",
-        }}
-      >
-        <div className="display-1 fw-bold  mt-3">The Generics</div>
-      </div>
       <Container style={{ width: "900px" }}>
         <h2
           style={{
